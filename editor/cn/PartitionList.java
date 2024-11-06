@@ -102,8 +102,15 @@ class Solution {
         // 断开原链表，避免循环
         // 这里写的不好，应该为 head 在设置一个 dummy 节点，否则无法让 head 断开，逻辑不清晰
         // 但这里，不用假节点,在生成的小链表后断开，也能达到不循环的效果
+
         p1.next = null;
         p2.next = null;
+
+        // 断开原链表中的每个节点的 next 指针
+        // 断开链表的代码如下
+        // ListNode temp = p.next;
+        // p.next = null;
+        // p = temp;
 
         // 3. 链表组合
         p1.next = l2.next;
