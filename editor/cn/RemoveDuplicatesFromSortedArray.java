@@ -67,11 +67,26 @@
   public class RemoveDuplicatesFromSortedArray{
       public static void main(String[] args) {
            Solution solution = new RemoveDuplicatesFromSortedArray().new Solution();
+
+           int[] arr = {0,0,1,1,1,2,2,3,3,4};
+           int location = solution.removeDuplicates(arr);
+           System.out.println(location);
+
       }
       //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeDuplicates(int[] nums) {
-        return 0;
+        // 1. 初始化两个快慢指针 fast、slow，指向数组首元素
+        int  slow = 0,  fast = 0;
+
+        // 2. 快指针开始扫描整个数组，每扫描一个和慢指针指向的元素比较，若不为重复元素，则让慢指针向后移动一位，并将元素复制到慢指针指向的位置
+        for (fast = 0; fast < nums.length; fast++){
+            if (nums[slow] != nums[fast]){
+                nums[++slow] = nums[fast];
+            }
+        }
+
+        return slow + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
